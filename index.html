@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>One Point Sale</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #333;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #f8f8f8;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      height: 50px;
+    }
+
+    .nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: #000;
+    }
+
+    .nav a:hover {
+      color: #007bff;
+    }
+
+    .main {
+      padding: 2rem;
+    }
+
+    .section {
+      margin: 4rem 0;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      text-decoration: none;
+      margin-top: 1rem;
+    }
+
+    .btn:hover {
+      background: #0056b3;
+    }
+
+    .services {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .services {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 2rem auto 0;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+    }
+
+    .small {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <img src="logo.png" alt="One Point Sale Logo" class="logo">
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    <section class="section center" id="hero">
+      <h1>AI at your professionals' fingertips</h1>
+      <p>Robust solutions for security and employee tracking productivity</p>
+      <a href="#contact" class="btn">Contact Us</a>
+    </section>
+
+    <section class="section center" id="about">
+      <h2>About One Point Sale</h2>
+      <h3>Our Mission</h3>
+      <p>At Onepointsale, we aim to empower businesses to achieve their full potential through innovative consulting solutions. We strive to build lasting relationships with our clients, ensuring their success and satisfaction through our expertise and unwavering support.</p>
+    </section>
+
+    <section class="section" id="services">
+      <h2 class="center">What We Do</h2>
+      <h3 class="center">Our Services</h3>
+      <p class="center">We provide robust and secure solutions for businesses through a variety of services, including:</p>
+      <div class="services">
+        <div>
+          <h4>Comprehensive AI Solutions</h4>
+          <p>AI consulting and development services to automate operations through machine learning and data analysis.</p>
+          <h4>Generative AI Security</h4>
+          <p>Generative AI security consulting ensures that AI solutions are secure at every step. Our experienced team can help you with the specialised needs of AI security.</p>
+        </div>
+        <div>
+          <h4>Strategic AI Roadmapping and Compliance</h4>
+          <p>Our strategic AI roadmapping focuses on ethics, compliance, and security. It ensures that your AI initiatives align with industry standards and regulations, giving you peace of mind.</p>
+          <h4>Innovative and Secure Software Development</h4>
+          <p>We deliver cutting-edge, secure, and robust AI software that pushes the boundaries of innovation. Our team of seasoned consultants, skilled programmers, and innovative designers are dedicated to creating solutions that inspire excitement.</p>
+        </div>
+      </div>
+      <p class="center">These consulting services help businesses harness the power of AI while ensuring security and robustness in their solutions.</p>
+    </section>
+
+    <section class="section center" id="contact">
+      <h2>Contact Us</h2>
+      <p>Better yet, see us in person!</p>
+      <p>We love our customers, so feel free to visit during normal business hours.</p>
+      <p><strong>Message us on WhatsApp</strong></p>
+      <p>One Point Sale</p>
+      <p>Praceta Carlos Capítulo 3 Office B, 2745-737 Queluz, Lisbon, Portugal</p>
+      <p>+351 912 60 60 50</p>
+      <p>contact@onepointsale.com</p>
+
+      <form class="form">
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email*" required />
+        <textarea placeholder="Message" rows="4" required></textarea>
+        <button type="submit" class="btn">Send</button>
+      </form>
+
+      <p class="small">Sign up for our email list for updates, promotions, and more.</p>
+      <p class="small">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
+      <p class="small">© 2024 One Point Sale - All Rights Reserved.</p>
+      <p class="small">Powered by Onepointsale</p>
+      <a href="#" class="small">Privacy Policy</a>
+    </section>
+  </main>
+</body>
+</html>

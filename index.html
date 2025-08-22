@@ -4,92 +4,146 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>One Point Sale</title>
+  <meta name="description" content="One Point Sale — AI consulting, generative AI security, roadmapping & compliance, and robust software development." />
+  <link rel="icon" href="Logo.png" />
   <style>
-    body { font-family: sans-serif; margin: 0; padding: 0; background: #fff; color: #333; }
-    .header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #f8f8f8; box-shadow: 0 2px 4px rgba(0,0,0,.1); }
-    .logo { height: 50px; }
-    .nav a { margin: 0 1rem; text-decoration: none; color: #000; }
-    .nav a:hover { color: #007bff; }
-    .main { padding: 2rem; }
-    .section { margin: 4rem 0; }
-    .center { text-align: center; }
-    .btn { display: inline-block; padding: .75rem 1.5rem; background: #007bff; color: #fff; border: none; border-radius: 999px; text-decoration: none; margin-top: 1rem; cursor: pointer; }
-    .btn:hover { background: #0056b3; }
-    .services { display: flex; flex-direction: column; gap: 2rem; }
-    @media (min-width: 768px) { .services { flex-direction: row; justify-content: space-between; } }
-    .form { display: flex; flex-direction: column; gap: 1rem; max-width: 500px; margin: 2rem auto 0; }
-    input, textarea { padding: .75rem; border: 1px solid #ccc; border-radius: 6px; width: 100%; font-size: 1rem; }
-    .small { font-size: .8rem; color: #666; margin-top: 2rem; text-align: center; }
-    .notice { text-align:center; color:#2e7d32; font-size:.95rem; }
+    :root{
+      --brand:#0b69ff;
+      --ink:#222;
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --card:#f8f8f8;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    /* Header */
+    .header{position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #e5e7eb;z-index:20}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{height:42px}
+    .nav a{margin-left:18px;color:#000}
+    .nav a:hover{color:var(--brand)}
+    /* Hero */
+    .hero{padding:64px 0 24px;text-align:center}
+    .hero h1{font-weight:700;letter-spacing:.2px;margin:0 0 10px;font-size:clamp(26px,4vw,40px)}
+    .hero p{margin:0 0 20px;color:var(--muted)}
+    .btn{display:inline-block;background:var(--brand);color:#fff;border:none;border-radius:999px;padding:12px 22px;font-weight:600;cursor:pointer}
+    .btn:hover{filter:brightness(.92)}
+    /* Section title */
+    .section{padding:42px 0}
+    .title{font-size:clamp(26px,3.6vw,38px);text-align:center;margin:0 0 8px}
+    .title-sub{width:64px;height:3px;background:#e5e7eb;margin:8px auto 26px;border-radius:2px}
+    /* What we do banner */
+    .banner{margin:18px auto 26px;max-width:1100px;border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+    .banner img{display:block;width:100%;height:auto}
+    /* Services list */
+    .services-intro{max-width:980px;margin:0 auto 12px;text-align:center;color:#374151}
+    .services{max-width:980px;margin:0 auto;line-height:1.9}
+    .services ol{margin:0;padding-left:22px}
+    .services li{margin:8px 0}
+    .lead{color:#374151}
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:28px;align-items:center}
+    .contact-card{background:var(--card);border-radius:14px;padding:22px}
+    .contact-card p{margin:8px 0}
+    .wa{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:10px 16px;border-radius:999px;margin:10px 0 14px;font-weight:600}
+    .wa svg{width:18px;height:18px}
+    .contact-img{border-radius:12px;overflow:hidden;box-shadow:0 6px 22px rgba(0,0,0,.12)}
+    .contact-img img{width:100%;display:block;height:auto}
+    .form{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+    .form input,.form textarea{width:100%;padding:12px 14px;border:1px solid #d1d5db;border-radius:10px;font-size:16px}
+    .form button{align-self:flex-start}
+    /* Map */
+    .map-wrap{margin-top:28px;border-radius:12px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.08)}
+    .map{width:100%;height:380px;border:0}
+    /* Footer */
+    footer{margin-top:40px;background:#0f172a;color:#e5e7eb}
+    footer .row{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 0}
+    footer a{color:#c7d2fe}
+    /* Responsive */
+    @media (max-width:900px){
+      .contact-grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
   <header class="header">
-    <img src="Logo.png" alt="One Point Sale Logo" class="logo">
-    <nav class="nav">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="container header-inner">
+      <img src="Logo.png" class="logo" alt="One Point Sale logo">
+      <nav class="nav" aria-label="Primary">
+        <a href="#what-we-do">What we do</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main class="main">
-    <section class="section center" id="hero">
+  <main>
+    <!-- HERO -->
+    <section class="hero container">
       <h1>AI at your professionals' fingertips</h1>
-      <p>Robust solutions for security and employee tracking productivity</p>
-      <a href="#contact" class="btn">Contact Us</a>
+      <p>Robust solutions for security and employee productivity tracking.</p>
+      <a class="btn" href="#contact">Contact us</a>
     </section>
 
-    <section class="section center" id="about">
-      <h2>About One Point Sale</h2>
-      <h3>Our Mission</h3>
-      <p>At Onepointsale, we aim to empower businesses to achieve their full potential through innovative consulting solutions. We strive to build lasting relationships with our clients, ensuring their success and satisfaction through our expertise and unwavering support.</p>
-    </section>
-
-    <section class="section" id="services">
-      <h2 class="center">What We Do</h2>
-      <h3 class="center">Our Services</h3>
-      <p class="center">We provide robust and secure solutions for businesses through a variety of services, including:</p>
-      <div class="services">
-        <div>
-          <h4>Comprehensive AI Solutions</h4>
-          <p>AI consulting and development services to automate operations through machine learning and data analysis.</p>
-          <h4>Generative AI Security</h4>
-          <p>Generative AI security consulting ensures that AI solutions are secure at every step. Our experienced team can help you with the specialised needs of AI security.</p>
-        </div>
-        <div>
-          <h4>Strategic AI Roadmapping and Compliance</h4>
-          <p>Our strategic AI roadmapping focuses on ethics, compliance, and security. It ensures that your AI initiatives align with industry standards and regulations, giving you peace of mind.</p>
-          <h4>Innovative and Secure Software Development</h4>
-          <p>We deliver cutting-edge, secure, and robust AI software that pushes the boundaries of innovation. Our team of seasoned consultants, skilled programmers, and innovative designers are dedicated to creating solutions that inspire excitement.</p>
-        </div>
+    <!-- WHAT WE DO -->
+    <section class="section" id="what-we-do">
+      <h2 class="title">What we do</h2>
+      <div class="title-sub"></div>
+      <div class="banner container">
+        <img src="what-we-do.png" alt="Modern office with motion blur representing speed and innovation">
       </div>
-      <p class="center">These consulting services help businesses harness the power of AI while ensuring security and robustness in their solutions.</p>
     </section>
 
-    <section class="section center" id="contact">
-      <h2>Contact Us</h2>
-      <p>Better yet, see us in person!</p>
-      <p>We love our customers, so feel free to visit during normal business hours.</p>
-      <p><strong>Message us on WhatsApp</strong></p>
-      <p>One Point Sale</p>
-      <p>Praceta Carlos Capítulo 3 Office B, 2745-737 Queluz, Lisbon, Portugal</p>
-      <p>+351 912 60 60 50</p>
-      <p>contact@onepointsale.com</p>
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <h2 class="title">Our services</h2>
+      <div class="title-sub"></div>
+      <p class="services-intro">We provide robust and secure solutions for businesses through a variety of services, including:</p>
+      <div class="services">
+        <ol>
+          <li><strong>Comprehensive AI Solutions:</strong> AI consulting and development services to automate operations through machine learning and data analysis.</li>
+          <li><strong>Generative AI Security:</strong> Consulting that ensures AI solutions are secure at every step. Our experienced team helps with the specialised needs of AI security.</li>
+          <li><strong>Strategic AI Roadmapping and Compliance:</strong> Ethics, compliance, and security focused roadmaps that align your AI initiatives with industry standards and regulations.</li>
+          <li><strong>Innovative and Secure Software Development:</strong> We deliver cutting‑edge, secure, and robust AI software that pushes the boundaries of innovation.</li>
+        </ol>
+        <p class="lead">These consulting services help businesses harness the power of AI while ensuring security and robustness in their solutions.</p>
+      </div>
+    </section>
 
-      <!-- ✅ FormSubmit with fixed autoresponder (textarea with real line breaks) -->
-      <form action="https://formsubmit.co/paulo.saramago@onepointsale.com" method="POST" class="form">
-        <input type="text" name="name" placeholder="Name" aria-label="Name" required />
-        <input type="email" name="email" placeholder="Email*" aria-label="Email" required />
-        <textarea name="message" placeholder="Message" rows="4" aria-label="Message" required></textarea>
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <h2 class="title">Contact Us</h2>
+        <div class="title-sub"></div>
 
-        <input type="hidden" name="_subject" value="New message from One Point Sale" />
-        <input type="hidden" name="_template" value="box" />
-        <input type="hidden" name="_captcha" value="true" />
-        <input type="hidden" name="_next" value="https://onepointsale.com/?sent=1#contact" />
+        <div class="contact-grid">
+          <!-- Left: card + form -->
+          <div class="contact-card">
+            <h3>One Point Sale</h3>
+            <p>Praceta Carlos Capítulo 3 Office B,<br/>2745‑737 Queluz, Lisbon, Portugal</p>
+            <p><strong>Phone:</strong> +351 912 60 60 50</p>
+            <p><strong>Email:</strong> <a href="mailto:contact@onepointsale.com">contact@onepointsale.com</a></p>
 
-        <!-- Autoresponder plain text (works without URL/HTML encoding) -->
-        <textarea name="_autoresponse" style="display:none;">
+            <a class="wa" href="https://wa.me/351912606050" target="_blank" rel="noopener">
+              <!-- WhatsApp icon (inline SVG) -->
+              <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M19.11 17.31a5.51 5.51 0 0 1-2.39-.61c-.75-.37-1.58-.92-2.43-1.77-.85-.85-1.4-1.68-1.77-2.43a5.51 5.51 0 0 1-.61-2.39c0-.38.2-.72.51-.9l1.32-.75c.3-.17.68-.12.93.13l1.06 1.06c.25.25.31.64.13.94l-.62 1.1c-.09.16-.08.36.03.51.3.41.69.9 1.17 1.38.48.48.97.87 1.38 1.17.15.11.35.12.51.03l1.1-.62c.3-.17.68-.12.93.13l1.06 1.06c.25.25.31.64.13.93l-.75 1.32c-.18.31-.52.51-.9.51Z"/></svg>
+              Message us on WhatsApp
+            </a>
+
+            <!-- Contact form via FormSubmit (with autoresponder) -->
+            <form action="https://formsubmit.co/paulo.saramago@onepointsale.com" method="POST" class="form">
+              <input type="text" name="name" placeholder="Name" aria-label="Name" required />
+              <input type="email" name="email" placeholder="Email*" aria-label="Email" required />
+              <textarea name="message" placeholder="Message" rows="4" aria-label="Message" required></textarea>
+
+              <input type="hidden" name="_subject" value="New message from One Point Sale" />
+              <input type="hidden" name="_template" value="box" />
+              <input type="hidden" name="_captcha" value="true" />
+              <input type="hidden" name="_next" value="https://onepointsale.com/?sent=1#contact" />
+              <textarea name="_autoresponse" style="display:none;">
 Hi, and thank you for contacting One Point Sale!
 
 We have received your message and will get back to you as soon as possible. If your request is urgent, please call +351 912 60 60 50.
@@ -98,32 +152,38 @@ Best regards,
 Paulo Saramago
 Deep Learning & AI Researcher
 onepointsale.com
-        </textarea>
+              </textarea>
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+              <button type="submit" class="btn">Send</button>
+            </form>
+          </div>
 
-        <!-- Honeypot anti-bot -->
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+          <!-- Right: image -->
+          <div class="contact-img">
+            <img src="business.png" alt="Consulting meeting">
+          </div>
+        </div>
 
-        <button type="submit" class="btn">Send</button>
-      </form>
-
-      <p class="small">Sign up for our email list for updates, promotions, and more.</p>
-      <p class="small">This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.</p>
-      <p class="small">© 2024 One Point Sale - All Rights Reserved.</p>
-      <p class="small">Powered by Onepointsale</p>
-      <a href="#" class="small">Privacy Policy</a>
+        <!-- Google Maps -->
+        <div class="map-wrap">
+          <iframe class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Praceta+Carlos+Cap%C3%ADtulo+3%2C+2745-737+Queluz%2C+Portugal&output=embed"
+            title="Map to One Point Sale"></iframe>
+        </div>
+      </div>
     </section>
-
-    <div id="sentNotice" class="notice" style="display:none;">✅ Your message was sent. Thank you!</div>
   </main>
 
+  <footer>
+    <div class="container row">
+      <div>© 2024 One Point Sale — All rights reserved.</div>
+      <div>Powered by <a href="https://onepointsale.com">Onepointsale</a></div>
+    </div>
+  </footer>
+
   <script>
-    (function() {
-      try {
-        const params = new URLSearchParams(window.location.search);
-        if (params.get('sent') === '1') {
-          document.getElementById('sentNotice').style.display = 'block';
-        }
-      } catch (e) {}
+    (function(){
+      try{const p=new URLSearchParams(location.search);if(p.get('sent')==='1'){alert('✅ Your message was sent. Thank you!');}}catch(e){}
     })();
   </script>
 </body>

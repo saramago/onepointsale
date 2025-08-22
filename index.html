@@ -57,6 +57,7 @@
       border-radius: 999px;
       text-decoration: none;
       margin-top: 1rem;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -89,12 +90,14 @@
       border: 1px solid #ccc;
       border-radius: 6px;
       width: 100%;
+      font-size: 1rem;
     }
 
     .small {
       font-size: 0.8rem;
       color: #666;
       margin-top: 2rem;
+      text-align: center;
     }
   </style>
 </head>
@@ -152,10 +155,22 @@
       <p>+351 912 60 60 50</p>
       <p>contact@onepointsale.com</p>
 
-      <form class="form">
-        <input type="text" placeholder="Name" required />
-        <input type="email" placeholder="Email*" required />
-        <textarea placeholder="Message" rows="4" required></textarea>
+      <!-- ✅ FormSubmit integration -->
+      <form action="https://formsubmit.co/paulo.saramago@onepointsale.com" method="POST" class="form">
+        <!-- Visible fields -->
+        <input type="text" name="name" placeholder="Name" aria-label="Name" required />
+        <input type="email" name="email" placeholder="Email*" aria-label="Email" required />
+        <textarea name="message" placeholder="Message" rows="4" aria-label="Message" required></textarea>
+
+        <!-- Nice-to-have extras -->
+        <input type="hidden" name="_subject" value="New message from One Point Sale" />
+        <input type="hidden" name="_template" value="box" />
+        <input type="hidden" name="_captcha" value="true" />
+        <input type="hidden" name="_next" value="https://onepointsale.com/?sent=1#contact" />
+
+        <!-- Honeypot anti-bot (hidden field) -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+
         <button type="submit" class="btn">Send</button>
       </form>
 
@@ -168,6 +183,3 @@
   </main>
 </body>
 </html>
-
-
-

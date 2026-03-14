@@ -240,6 +240,34 @@
       padding:56px 0;
     }
 
+    .section-alt{
+      background:linear-gradient(180deg,#f8fbff 0%,#ffffff 100%);
+    }
+
+    .section-soft{
+      background:
+        radial-gradient(circle at top right, rgba(79,140,255,.08) 0%, rgba(79,140,255,0) 24%),
+        linear-gradient(180deg,#ffffff 0%,#f8fbff 100%);
+    }
+
+    .section-dark{
+      position:relative;
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(78,140,255,.18) 0%, rgba(78,140,255,0) 24%),
+        radial-gradient(circle at 80% 80%, rgba(0,184,255,.10) 0%, rgba(0,184,255,0) 24%),
+        linear-gradient(135deg, #0a1222 0%, #0f1b33 55%, #12284d 100%);
+      color:#ffffff;
+    }
+
+    .section-dark::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg, rgba(255,255,255,.05) 0%, rgba(255,255,255,0) 35%, rgba(255,255,255,.03) 70%, rgba(255,255,255,0) 100%);
+      pointer-events:none;
+    }
+
     .title{
       font-size:clamp(28px,3.8vw,40px);
       text-align:center;
@@ -253,6 +281,19 @@
       background:#e5e7eb;
       margin:8px auto 26px;
       border-radius:2px;
+    }
+
+    .section-dark .title-sub{
+      background:rgba(255,255,255,.22);
+    }
+
+    .section-dark .services-intro,
+    .section-dark .title{
+      color:#ffffff;
+    }
+
+    .section-dark .services-intro{
+      color:#d7e3f5;
     }
 
     .banner{
@@ -311,6 +352,13 @@
       border-radius:14px;
       padding:20px;
       box-shadow:0 6px 20px rgba(0,0,0,.04);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .principle:hover{
+      transform:translateY(-3px);
+      box-shadow:0 14px 32px rgba(15,23,42,.08);
+      border-color:#d8e3f2;
     }
 
     .principle h3{
@@ -321,6 +369,83 @@
     .principle p{
       margin:0;
       color:var(--muted);
+    }
+
+    .trust-section{
+      max-width:1100px;
+      margin:0 auto;
+      padding:10px 20px 0;
+    }
+
+    .trust-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:22px;
+    }
+
+    .trust-card{
+      background:linear-gradient(180deg,#ffffff 0%,#f9fbff 100%);
+      border:1px solid #e7edf5;
+      border-radius:16px;
+      padding:24px;
+      box-shadow:0 10px 28px rgba(15,23,42,.06);
+    }
+
+    .trust-card h3{
+      margin:0 0 10px;
+      font-size:21px;
+      color:#18212f;
+    }
+
+    .trust-card p{
+      margin:0;
+      color:#5f6f85;
+    }
+
+    .focus-grid{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      max-width:1100px;
+      margin:22px auto 0;
+      padding:0 20px;
+    }
+
+    .focus-card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:18px;
+      padding:24px;
+      box-shadow:0 14px 34px rgba(0,0,0,.18);
+      backdrop-filter:blur(10px);
+    }
+
+    .focus-label{
+      display:inline-block;
+      margin-bottom:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      color:#cfe0ff;
+      font-size:12px;
+      font-weight:800;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+    }
+
+    .focus-card h3{
+      margin:0 0 10px;
+      font-size:22px;
+      color:#ffffff;
+    }
+
+    .focus-card p{
+      margin:0;
+      color:#d7e3f5;
     }
 
     .how-grid{
@@ -337,6 +462,13 @@
       border-radius:14px;
       padding:22px;
       box-shadow:0 6px 20px rgba(0,0,0,.04);
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+
+    .how-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 14px 32px rgba(15,23,42,.08);
+      border-color:#d8e3f2;
     }
 
     .how-number{
@@ -373,6 +505,14 @@
       background:var(--card);
       border-radius:14px;
       padding:22px;
+      transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      border:1px solid transparent;
+    }
+
+    .contact-card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 14px 32px rgba(15,23,42,.08);
+      border-color:#d8e3f2;
     }
 
     .contact-card p{
@@ -452,6 +592,37 @@
       border:0;
     }
 
+    .back-to-top{
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      width:48px;
+      height:48px;
+      border:none;
+      border-radius:999px;
+      background:#0b69ff;
+      color:#fff;
+      font-size:20px;
+      font-weight:800;
+      cursor:pointer;
+      box-shadow:0 10px 24px rgba(11,105,255,.28);
+      z-index:1100;
+      opacity:0;
+      visibility:hidden;
+      transform:translateY(8px);
+      transition:all .2s ease;
+    }
+
+    .back-to-top.show{
+      opacity:1;
+      visibility:visible;
+      transform:translateY(0);
+    }
+
+    .back-to-top:hover{
+      filter:brightness(.95);
+    }
+
     footer{
       margin-top:40px;
       background:var(--dark);
@@ -503,6 +674,8 @@
 
       .hero-highlights,
       .principles,
+      .trust-grid,
+      .focus-grid,
       .how-grid,
       .contact-grid{
         grid-template-columns:1fr;
@@ -560,7 +733,40 @@
       </section>
     </div>
 
-    <section class="section" id="what-we-do">
+    <section class="section section-alt" id="trust">
+      <div class="trust-section">
+        <h2 class="title">Why organisations trust One Point Sale</h2>
+        <div class="title-sub"></div>
+        <p class="services-intro">
+          We bring structure, governance and operational clarity to AI adoption in decision environments where trust matters.
+        </p>
+
+        <div class="trust-grid">
+          <div class="trust-card">
+            <h3>Decision clarity</h3>
+            <p>
+              We help teams understand how data, models and operational choices interact, reducing guesswork and improving decision quality.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <h3>Governance by design</h3>
+            <p>
+              We define ownership, review practices and control points that make AI safer, clearer and easier to manage.
+            </p>
+          </div>
+
+          <div class="trust-card">
+            <h3>Operational realism</h3>
+            <p>
+              We focus on adoption that works in real environments, where accountability, execution and measurable outcomes matter.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="what-we-do">
       <h2 class="title">What we do</h2>
       <div class="title-sub"></div>
 
@@ -611,7 +817,42 @@
       </div>
     </section>
 
-    <section class="section" id="how-we-work">
+    <section class="section section-dark" id="focus-areas">
+      <h2 class="title">Selected focus areas</h2>
+      <div class="title-sub"></div>
+
+      <p class="services-intro">
+        We focus on high trust decision environments where AI needs structure, governance and operational clarity.
+      </p>
+
+      <div class="focus-grid">
+        <div class="focus-card">
+          <div class="focus-label">Focus area</div>
+          <h3>Fraud and risk operations</h3>
+          <p>
+            AI adoption in environments where false positives, false negatives, analyst workflow and control effectiveness all matter.
+          </p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-label">Focus area</div>
+          <h3>AI governance and inventory</h3>
+          <p>
+            Clear visibility over models, agents, prompts, datasets and ownership, supported by practical governance and review discipline.
+          </p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-label">Focus area</div>
+          <h3>Operational decision systems</h3>
+          <p>
+            AI delivery for decision processes that require traceability, accountability and measurable business outcomes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="how-we-work">
       <h2 class="title">How we work</h2>
       <div class="title-sub"></div>
 
@@ -704,6 +945,8 @@ One Point Sale
     </div>
   </footer>
 
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
   <script>
     (function(){
       try{
@@ -712,6 +955,20 @@ One Point Sale
           alert('Your message was sent. Thank you!');
         }
       }catch(e){}
+
+      const backToTop = document.getElementById('backToTop');
+
+      window.addEventListener('scroll', function(){
+        if(window.scrollY > 500){
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+
+      backToTop.addEventListener('click', function(){
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
     })();
   </script>
 </body>
